@@ -262,6 +262,329 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/11/06/RetainAllTest.html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张小白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/06/RetainAllTest.html/" itemprop="url">RemoveAllTest</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T14:46:28+08:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  今天看到一个例子，取得某一集合中另一个集合没有的元素，是先求得两个集合的交集，在取这个集合和交集的差集。我想直接取两个集合的差集是不是就可以，因此研究一下有关集合的 removeAll() 方法，A.removeAll(B) 方法是求两个集合的差集，这是在网上查找最多的说法，用我自己的话说为删除 A 集合中的元素，删除的元素是在 B 集合中也存在的。</p>
+<pre><code>public boolean removeAll(Collection&lt;?&gt; c){
+    boolean modified = false;
+    if(size() &lt; c.size()){
+        for(Iterator&lt;?&gt; i = c.iterator; i.hasNext(); ){
+            modified |= remove(i.next());
+        }
+    }else{
+        for(Iterator&lt;?&gt; i = iterator; i.hasnext(); ){
+            if(c.contains(i.next){
+                i.remove();
+                modified = true;
+            }
+    }
+}
+</code></pre><p>由源码可知，当 A 集合的元素个数少于 B 集合的元素个数，遍历 B 集合，调用 remove() 方法，删除 A 集合中存在的元素；当 A 集合中的元素大于 B 集合中的元素，遍历 A 集合，判断 B 集合中是否存在这个元素，如果存在，就删除 A 集合中的这个元素。所以当一个集合调用这个方法与另一集合进行比较后，删除那些自己集合中存在，另一集合也存在的元素。</p>
+<pre><code>public class RemoveAllTest {
+
+    public static void main(String[] args) {
+
+        Set&lt;Integer&gt; set1 = new HashSet&lt;Integer&gt;();
+        Set&lt;Integer&gt; set2 = new HashSet&lt;Integer&gt;();
+        Set&lt;Integer&gt; set3 = new HashSet&lt;Integer&gt;();
+        for(int i = 4; i &lt; 10; i++) {
+            set1.add(i);
+            set3.add(i);
+        }
+
+        for(int i= 18; i &gt;= 7; i--) {
+            set2.add(i);
+        }
+
+        //经过测验可知，先取 set1 和 set2 的交集，再取这个交集和 set1 的差集的结果与直接取 set1 与 set2 的差集的结果相同(set1 与 set3 集合中元素相同）
+        //set1.retainAll(set2);        
+        //set3.removeAll(set1);
+
+        set3.removeAll(set2);
+        System.out.println(set3);
+    }
+
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/11/02/Contions-sort.html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张小白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/02/Contions-sort.html/" itemprop="url">Contions.sort()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-02T10:02:20+08:00">
+                2018-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/07/23/hello-world.html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -423,12 +746,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -436,7 +768,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
