@@ -262,6 +262,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/11/06/trimAndSplit.html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张小白">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/06/trimAndSplit.html/" itemprop="url">trimAndSplit</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T20:43:13+08:00">
+                2018-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>工作中发现之前大佬写的一个通用方法，将 String 类转化为 Map 类。</p>
+<p>代码如下：</p>
+<pre><code>public class StringToMap{
+    public static void main(String[] args){
+        Map&lt;Integer, Integer&gt; m = new HashMap&lt;Integer, Integer&gt;();
+
+        String s = &quot;1@2;3@4&quot;;
+        String[] s1 = s.split(&quot;;&quot;);
+
+        for(String s2 : s1){
+            String[] s3 = s2.trim().split(&quot;@&quot;);
+            int a = Integer.parseInt(s3[0]);
+             int b = Integer.parseInt(s3[1]);
+            m.put(a,b);
+        }
+    }
+}
+</code></pre><p>trim() 方法为去掉 String 字符串的首尾空格，自己在测试时将 trim() 方法去掉，即</p>
+<pre><code>String[] s3 = s2.split(&quot;@&quot;);
+</code></pre><p>结果发现结果与去掉之前相同，为什么要加 trim() 方法呢，我又继续做测试，将字符串前后都加上空格，即</p>
+<pre><code>String s = &quot; 1@2;3@4 &quot;;
+</code></pre><p>这时候在不加 trim() 方法，会发生 java.lang.NumberFormatException: For input string: “ 1” 错误，可知就是因为1前面有空格，使转换成数字类型时出错。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/11/06/RetainAllTest.html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -746,7 +909,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
