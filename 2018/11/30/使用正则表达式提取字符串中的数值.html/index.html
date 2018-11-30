@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="张小白">
 <meta property="og:description" content="工作中遇到需要提取字符串中的数值，借助网上的一个办法： public class PatternTest1 {         public static void main(String[] args){            String s = &amp;quot;(1&amp;amp;(4|5))|10&amp;quot;;             //开始利用正则表达式            String ba">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-30T10:13:29.685Z">
+<meta property="og:updated_time" content="2018-11-30T10:16:31.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用正则表达式提取字符串中的数值">
 <meta name="twitter:description" content="工作中遇到需要提取字符串中的数值，借助网上的一个办法： public class PatternTest1 {         public static void main(String[] args){            String s = &amp;quot;(1&amp;amp;(4|5))|10&amp;quot;;             //开始利用正则表达式            String ba">
@@ -371,8 +371,8 @@
     }
 }
 
-输出结果：1,4，5,1,0，
-</code></pre><p>发现10分为（1,0）输出，所以字符串中有大于9的数值不能用这个方法。</p>
+输出结果：1,4,5,1,0,
+</code></pre><p>发现10分为(1,0)输出，所以字符串中有大于9的数值不能用这个方法。</p>
 <p>下面的例子可以输出10：</p>
 <pre><code>public class PatternTest2 {
 
