@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="张小白">
 <meta property="og:description" content="java程序取出 mysql 数据库的信息配置在项目中导入 mysql-connector-java-8.0.13.jar 包，下载网址：https://dev.mysql.com/downloads/connector/j/，在Select Operating System:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T10:53:33.916Z">
+<meta property="og:updated_time" content="2018-12-06T11:01:13.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java+mysql">
 <meta name="twitter:description" content="java程序取出 mysql 数据库的信息配置在项目中导入 mysql-connector-java-8.0.13.jar 包，下载网址：https://dev.mysql.com/downloads/connector/j/，在Select Operating System:">
@@ -362,10 +362,11 @@
         /**
            &quot;jdbc:mysql&quot;: 通用的
 
-            &quot;localhost:3306/ceshi&quot;: localhost:主机名或ip地址; 3306:端口; ceshi:数据库的名字
+           &quot;localhost:3306/ceshi&quot;: localhost:主机名或ip地址; 3306:端口; ceshi:数据库的名字
 
-              &quot;?serverTimezone=UTC&quot;: (解决下面的错误，不要忘记加&quot;?&quot;)
-            --&gt;Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException:
+           &quot;?serverTimezone=UTC&quot;: (解决下面的错误，不要忘记加&quot;?&quot;)
+
+              Caused by: com.mysql.cj.core.exceptions.InvalidConnectionAttributeException:
                The server time zone value &apos;�й���׼ʱ��&apos; is unrecognized or represents more than one time zone.
                 You must configure either the server or JDBC driver (via the serverTimezone configuration property)
                 to use a more specifc time zone value if you want to utilize time zone support.
