@@ -530,8 +530,7 @@ https://ruyuntao.iteye.com/blog/406935
       
         
           
-            <p>##java.lang.IndexOutOfBoundsException: index:2, size:1</p>
-<p>当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？</p>
+            <h2 id="java-lang-IndexOutOfBoundsException-index-2-size-1"><a href="#java-lang-IndexOutOfBoundsException-index-2-size-1" class="headerlink" title="java.lang.IndexOutOfBoundsException: index:2, size:1"></a>java.lang.IndexOutOfBoundsException: index:2, size:1</h2><p>当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？</p>
 <p>经过试验得知：index 是 get() 方法输入的参数，size 是集合中元素的数量。</p>
 <p>代码如下：</p>
 <pre><code>public class ListTest {
