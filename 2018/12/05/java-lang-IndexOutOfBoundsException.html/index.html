@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Contions," />
+  <meta name="keywords" content="IndexOutOfBoundsException," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="java">
-<meta name="keywords" content="Contions">
+<meta name="description" content="#java.lang.IndexOutOfBoundsException: index:2, size:1 当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？ 经过试验得知：index 是 get() 方法输入的参数，size 是集合中元素的数量。 代码如下： public class Lis">
+<meta name="keywords" content="IndexOutOfBoundsException">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contions.sort()">
-<meta property="og:url" content="http://javazhangwy.github.io/2018/11/02/Contions-sort.html/index.html">
+<meta property="og:title" content="java.lang.IndexOutOfBoundsException">
+<meta property="og:url" content="http://javazhangwy.github.io/2018/12/05/java-lang-IndexOutOfBoundsException.html/index.html">
 <meta property="og:site_name" content="张小白">
-<meta property="og:description" content="java">
+<meta property="og:description" content="#java.lang.IndexOutOfBoundsException: index:2, size:1 当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？ 经过试验得知：index 是 get() 方法输入的参数，size 是集合中元素的数量。 代码如下： public class Lis">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-02T11:03:53.094Z">
+<meta property="og:updated_time" content="2018-12-05T13:23:32.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contions.sort()">
-<meta name="twitter:description" content="java">
+<meta name="twitter:title" content="java.lang.IndexOutOfBoundsException">
+<meta name="twitter:description" content="#java.lang.IndexOutOfBoundsException: index:2, size:1 当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？ 经过试验得知：index 是 get() 方法输入的参数，size 是集合中元素的数量。 代码如下： public class Lis">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://javazhangwy.github.io/2018/11/02/Contions-sort.html/"/>
+  <link rel="canonical" href="http://javazhangwy.github.io/2018/12/05/java-lang-IndexOutOfBoundsException.html/"/>
 
 
 
 
 
-  <title>Contions.sort() | 张小白</title>
+  <title>java.lang.IndexOutOfBoundsException | 张小白</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/11/02/Contions-sort.html/">
+    <link itemprop="mainEntityOfPage" href="http://javazhangwy.github.io/2018/12/05/java-lang-IndexOutOfBoundsException.html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Contions.sort()</h1>
+          <h1 class="post-title" itemprop="name headline">java.lang.IndexOutOfBoundsException</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-02T10:02:20+08:00">
-                2018-11-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T20:57:04+08:00">
+                2018-12-05
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
                   </a>
                 </span>
 
@@ -352,7 +352,66 @@
       
 
       
-        
+        <p>#java.lang.IndexOutOfBoundsException: index:2, size:1</p>
+<p>当发生这个错误的时候很多时候是因为 get() 方法中的参数大于集合中元素的数量，但是 index 后面的 2 与 size 后面的 1 分别是什么意思呢？</p>
+<p>经过试验得知：index 是 get() 方法输入的参数，size 是集合中元素的数量。</p>
+<p>代码如下：</p>
+<pre><code>public class ListTest {
+
+    public static void main(String[] args) {
+
+        List&lt;Integer&gt; test1 = new ArrayList&lt;Integer&gt;();
+        test1.add(1);
+        System.out.println(test1.get(2));
+    }
+
+}
+
+错误：
+Exception in thread &quot;main&quot; java.lang.IndexOutOfBoundsException: Index: 2, Size: 1
+at java.util.ArrayList.rangeCheck(Unknown Source)
+at java.util.ArrayList.get(Unknown Source)
+at test.ListTest.main(ListTest.java:12)
+
+
+public class ListTest2 {
+
+    public static void main(String[] args) {
+
+        List&lt;Integer&gt; test2 = new ArrayList&lt;Integer&gt;();
+        test2.add(1);
+        test2.add(1);
+        System.out.println(test2.get(2));
+    }
+
+}
+
+错误：
+Exception in thread &quot;main&quot; java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+at java.util.ArrayList.rangeCheck(Unknown Source)
+at java.util.ArrayList.get(Unknown Source)
+at test.ListTest.main(ListTest.java:13)
+
+
+public class ListTest3 {
+
+    public static void main(String[] args) {
+
+        List&lt;Integer&gt; test3 = new ArrayList&lt;Integer&gt;();
+        test3.add(1);
+        test3.set(2, 3); 
+        System.out.println(test3.get(2));
+    }
+
+}
+
+错误：
+Exception in thread &quot;main&quot; java.lang.IndexOutOfBoundsException: Index: 2, Size: 1
+at java.util.ArrayList.rangeCheck(Unknown Source)
+at java.util.ArrayList.set(Unknown Source)
+at test.ListTest3.main(ListTest3.java:12)
+</code></pre><p>由 ListTest3 可得这个错误是在 test3.set(2, 3); 这行发生的，说明当你对 List 中某一个没有值的位置进行 set() 操作是错误的，也会发生 java.lang.IndexOutOfBoundsException。</p>
+
       
     </div>
     
@@ -369,7 +428,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Contions/" rel="tag"># Contions</a>
+            <a href="/tags/IndexOutOfBoundsException/" rel="tag"># IndexOutOfBoundsException</a>
           
         </div>
       
@@ -382,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/23/hello-world.html/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/12/03/Java-除法陷阱与浮点数精确计算.html/" rel="next" title="Java 除法陷阱与浮点数精确计算">
+                <i class="fa fa-chevron-left"></i> Java 除法陷阱与浮点数精确计算
               </a>
             
           </div>
@@ -392,8 +451,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/06/RetainAllTest.html/" rel="prev" title="RemoveAllTest">
-                RemoveAllTest <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/06/Java中ScriptEngine的eval方法.html/" rel="prev" title="Java中ScriptEngine的eval方法">
+                Java中ScriptEngine的eval方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
